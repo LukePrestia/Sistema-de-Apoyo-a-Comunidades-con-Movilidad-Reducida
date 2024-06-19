@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rankings</title>
+<link rel="stylesheet" href="../src/main/resources/public/css/listaIncidentes.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .incident-list-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    text-align: center;
+  }
+
+  .incident-list-container h2 {
+    margin-bottom: 20px;
+  }
+
+  .excel-table table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+  }
+
+  .excel-table th, .excel-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .excel-table th {
+    background-color: #f2f2f2;
+  }
+
+  .excel-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  .excel-table tbody tr:hover {
+    background-color: #ddd;
+  }
+
+  .button-container {
+    margin-top: 20px;
+  }
+
+  .incident-list-container {
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  .red-button {
+    background-color: #ff5252;
+    color: #fff;
+  }
+
+  .green-button {
+    background-color: #4caf50;
+    color: #fff;
+  }
+
+  .lightblue-button {
+    background-color: #03aefd;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+  <div class="d-flex justify-content-center mb-3">
+    <button class="option-button red-button" onclick="listar_ranking_1()">Listar Ranking 1</button>
+    <button class="option-button green-button" onclick="listar_ranking_2()">Listar Ranking 2</button>
+    <button class="option-button lightblue-button" onclick="listar_ranking_3()">Listar Ranking 3</button>
+  </div>
+  <div class="excel-table"">
+    <div id="programa">
+        <h3 class="d-flex justify-content-center">Ranking</h3><br>
+        <div class="btn-group btn-group-lg d-flex justify-content-center">
+       
+    </div>
+    <br>
+    <div class="d-flex justify-content-center"id="ma" >         
+
+        <p ></p> 
+     </div>
+     <br>
+    
+    <br><br>   
+       
+    </div>
+    
+    <div class="form-group">
+        <button type="button" onclick="volver()" class="btn btn-primary">Volver</button>
+    </div>    
+ 
+  <script src="../src/main/resources/public/js/ranking.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+
+
+
+  {{#partial "contenido" }}
+      <link rel="stylesheet" href="/css/registro.css">
+
+      <title>Registro</title>
+  <div class="container">
+    <h2>Registro</h2>
+    <form method="POST" action="/usuarios/crear" id="formulario">
+      <span>Nombre:</span>
+      <br>
+      <input name="nombre" type="text" id="nombre" placeholder="Nombre" required>
+      <br>
+      <span>Correo:</span>
+      <br>
+      <input name="correo" type="text" id="correo" placeholder="Correo" required>
+      <br>
+      <span>Contraseña:</span>
+      <br>
+      <input name="contrasena" type="password" id="contrasena" placeholder="Contraseña" required>
+      <br>
+      <span>Rol:</span>
+      <br>
+      <select name="rol" id="rol" required>
+        <option value="admin">Administrador</option>
+        <option value="miembro">Miembro</option>
+      </select>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-primary" id="guardarUsuario">Guardar</button>
+    </form>
+  </div>
+
+{{/partial}}
+{{> templates/base }}
+

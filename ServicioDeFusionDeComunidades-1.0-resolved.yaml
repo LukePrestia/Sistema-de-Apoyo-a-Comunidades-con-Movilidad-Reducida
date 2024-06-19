@@ -1,0 +1,64 @@
+---
+openapi: 3.0.0
+info:
+  title: FusionComunidades
+  description: Servicio de fusion de comunidades
+  version: "1.0"
+servers:
+- url: https://virtserver.swaggerhub.com/LPRESTIA/ServicioDeFusionDeComunidades/1.0
+  description: SwaggerHub API Auto Mocking
+- url: http://localhost:8080/api
+paths:
+  /sugerir:
+    get:
+      summary: Sugiere la fusion de comunidades
+      description: "Dada una lista de comunidades, sugiere pares de comunidades que pueden fusionarse en función de ciertos criterios."
+      parameters:
+      - name: comunidades
+        in: query
+        description: Lista de comunidades
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comunidad'
+      responses:
+        "200":
+          description: Todo 10 pts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DuplaApi'
+      security: []
+components:
+  schemas:
+    Comunidad:
+      type: object
+      properties:
+        id:
+          type: integer
+        confianza:
+          type: boolean
+        establecimientosObservados:
+          type: array
+          items:
+            type: string
+        serviciosObservados:
+          type: array
+          items:
+            type: string
+        membresias:
+          type: array
+          items:
+            type: string
+    DuplaApi:
+      type: object
+      properties:
+        comunidadId1:
+          type: integer
+        comunidadId2:
+          type: integer

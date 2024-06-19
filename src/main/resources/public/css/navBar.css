@@ -1,0 +1,21 @@
+    .topnav {
+        background-color: #333;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .topnav a {
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        padding: 10px 20px;
+    }
+
+    .topnav a.active {
+        background-color: #007bff;
+    }.btn-dark:hover {
+         color: white;
+     }

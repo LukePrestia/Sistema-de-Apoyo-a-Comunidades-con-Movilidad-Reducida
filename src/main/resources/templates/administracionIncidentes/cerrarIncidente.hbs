@@ -1,0 +1,23 @@
+{{#partial "contenido" }}
+<link rel="stylesheet" href="/css/estiloLogin.css">
+<div class="cierreIncidente" id="cierre" style="display: block;">
+    <h2>Ingrese el nombre del Incidente que desea cerrar</h2>
+    <form id="dataEntryForm">
+      <input type="text" class="input-field" placeholder="Nombre del Incidente" required>
+      <button type="submit" class="login-button">Submit</button>
+    </form>
+    <div class="form-group">
+      <br>
+  
+      <button type="button" onclick="volver()" class="btn btn-primary">Volver</button>
+  </div>
+    <div class="form-group">
+        <br>
+        <form method="GET"  action="/login"  id="dataEntryForm">
+            <button type="submit"  class="btn btn-primary">Volver</button>
+        </form>
+    </div>
+  <script src="js/abm.js"></script>
+</div>
+{{/partial}}
+{{> templates/base }}

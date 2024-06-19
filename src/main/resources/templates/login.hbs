@@ -1,0 +1,18 @@
+{{#partial "contenido" }}
+    <div class="container">
+
+        <link rel="stylesheet" href="css/estiloLogin.css">
+    <div class="inicioSesion" id="inicioSesion">
+  <h2>Inicio de Sesión</h2>
+        <form id="loginForm" method="POST"  action="/login" >
+    <input type="text" name="usuario" class="input-field" placeholder="Usuario" required>
+    <input type="password" name="contrasena" class="input-field" placeholder="Contraseña" required>
+    <button type="submit" class="login-button" >Iniciar Sesión</button>
+  </form>
+        <form id="adminUsuario" method="GET"  action="/usuarios" >
+            <button type="submit" class="crear-button" >Crear Usuario</button>
+        </form>
+</div>
+    </div>
+{{/partial}}
+{{> templates/base }}

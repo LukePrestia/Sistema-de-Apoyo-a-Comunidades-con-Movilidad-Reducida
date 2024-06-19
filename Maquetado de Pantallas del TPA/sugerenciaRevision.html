@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertencia de Incidente</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #ff0000;
+        }
+        #incidente {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        #pregunta {
+            margin-top: 20px;
+        }
+        #botones {
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn-yes {
+            background-color: #24aa24;
+            color: #ffffff;
+        }
+        .btn-no {
+            background-color: #ff0000;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Estás cerca del Incidente</h1>
+        <div id="incidente"><span id="nombreIncidente">Baño de hombre retiro</span></div>
+        <div id="pregunta">¿Se solucionó el incidente?</div>
+        <div id="botones">
+            <button class="btn btn-yes">SI</button>
+            <button class="btn btn-no">NO</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript para cambiar el nombre del incidente
+        const nombreIncidenteElement = document.getElementById('nombreIncidente');
+        
+        // Función para cambiar el nombre del incidente
+        function cambiarNombreIncidente(nuevoNombre) {
+            nombreIncidenteElement.textContent = nuevoNombre;
+        }
+    </script>
+</body>
+</html>

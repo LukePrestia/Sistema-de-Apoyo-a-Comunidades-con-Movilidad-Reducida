@@ -1,0 +1,151 @@
+
+{{#partial "contenido" }}
+
+    <link rel="stylesheet" href="/css/listaIncidentes.css">
+
+    <style>
+
+        .incident-list-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            text-align: center;
+        }
+
+        .incident-list-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .excel-table table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+
+        .excel-table th, .excel-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .excel-table th {
+            background-color: #f2f2f2;
+        }
+
+        .excel-table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .excel-table tbody tr:hover {
+            background-color: #ddd;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .btn{
+            font-weight: bold;
+        }
+
+        .option-button {
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .red-button {
+            background-color: #ff5252;
+            color: #fff;
+        }
+
+        .green-button {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .lightblue-button {
+            background-color: #03aefd;
+            color: #fff;
+        }
+</style>
+    {{#if cerro}}
+    <div class="alert alert-success" role="alert">
+        Se Cerro el Incidente Con Exito
+    </div>
+    {{/if}}
+
+<div class="d-flex justify-content-center mb-3">
+    <form method="GET"  action="/incidentes/0/mostrar">
+        <button class="option-button red-button" onclick="listarAbierto()">Filtrar por Abierto</button>
+    </form>
+    <form method="GET"  action="/incidentes/1/mostrar">
+        <button class="option-button green-button" onclick="listarCerrado()">Filtrar por Cerrado</button>
+    </form>
+    <form method="GET"  action="/incidentes">
+        <button class="option-button lightblue-button" onclick="listarTodo()">Listar Todos</button>
+    </form>
+    <form method="GET"  action="/incidentes/cercano/mostrar">
+        <button class="option-button lightblue-button" onclick="listarTodo()">Listar Los Cercanos</button>
+    </form>
+</div>
+    <div class="container">
+
+        <link rel="stylesheet" href="/css/estiloLogin.css">
+    <div class="incident-list-container">
+        <h2>Lista de Incidentes</h2>
+        <div class="excel-table">
+            <table>
+                <thead>
+                <tr>
+                    <th>Entidad</th>
+                    <th>Establecimiento</th>
+                    <th>Servicio</th>
+                    <th>Estado</th>
+                    <th>Fecha de Reporte</th>
+
+                    <th>Acciones</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {{#each incidentes}}
+                    <tr>
+                        <td>{{this.entidad.nombre}}</td>
+                        <td>{{this.establecimiento.nombre}}</td>
+                        <td>{{this.servicio.servicio.tipo}}</td>
+                        <td>{{this.estado}}</td>
+                        <td>{{this.horaInicio}}</td>
+
+                        <td>
+                            {{#if this.BotonCerrar}}
+                            <a class="btn btn-secondary" href="/incidentes/{{this.id}}/cerrar"><i class="fa fa-times" aria-hidden="true"></i></a>
+                            {{/if}}
+                        </td>
+                    </tr>
+
+                {{/each}}
+                </tbody>
+            </table>
+        <div class="form-group">
+            <br>
+            <form method="GET" action="/login?" id="dataEntryForm">
+                <button type="submit" class="btn btn-primary">Volver</button>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+    </div>
+
+{{/partial}}
+{{> templates/base }}
+
+

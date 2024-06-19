@@ -1,0 +1,121 @@
+{{#partial "contenido" }}
+
+    <style>
+
+        .incident-list-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-right: auto;
+            width: 50%;
+            margin-left: auto;
+            text-align: center;
+        }
+
+        .incident-list-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .excel-table table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+
+        .excel-table th, .excel-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .excel-table th {
+            background-color: #f2f2f2;
+        }
+
+        .excel-table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .excel-table tbody tr:hover {
+            background-color: #ddd;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .incident-list-container {
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .red-button {
+            background-color: #ff5252;
+            color: #fff;
+        }
+
+        .green-button {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .lightblue-button {
+            background-color: #03aefd;
+            color: #fff;
+        }
+    </style>
+    <link rel="stylesheet" href="/css/listaIncidentes.css">
+
+    <div class="d-flex justify-content-center mb-3">
+        <form method="GET"  action="/ranking/afectados">
+            <button class="option-button red-button" >Mostrar Ranking de Afectados</button>
+        </form>
+        <form method="GET"  action="/ranking/incidentes">
+            <button class="option-button green-button" >Mostrar Ranking de Cantidad de Incidentes</button>
+        </form>
+        <form method="GET"  action="/ranking/promedio">
+            <button class="option-button lightblue-button" >Mostrar Ranking de Promedio</button>
+        </form>
+
+    </div>
+
+    <div class="incident-list-container">
+        <h2>Lista de Incidentes</h2>
+        <div class="excel-table">
+            <table>
+                <thead>
+                <tr>
+                <tr>
+                    <th>Rank</th>
+                    <th>Entidad del Incidente</th>
+                    <th>Establecimiento del Incidente</th>
+                    <th>Servicio del Incidente</th>
+                    <th>Afectados</th>
+
+                </tr>
+
+                </tr>
+                </thead>
+                <tbody>
+                {{#each ranking}}
+                    <tr>
+                        <td>{{@index}}</td>
+                        <td>{{this.entidad.nombre}}</td>
+                        <td>{{this.establecimiento.nombre}}</td>
+                        <td>{{this.servicio.servicio.tipo}}</td>
+                        <td>{{this.afectados}}</td>
+
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="js/ranking.js"></script>
+{{/partial}}
+{{> templates/base }}

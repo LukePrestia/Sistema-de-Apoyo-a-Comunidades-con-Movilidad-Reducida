@@ -1,0 +1,111 @@
+{{#partial "contenido" }}
+
+    <style>
+        user-list{
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-right: auto;
+            width: 50%;
+            margin-left: auto;
+            text-align: center;
+        }
+
+    .user-list h2 {
+        margin-bottom: 20px;
+    }
+
+    .excel-table table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #ccc;
+    }
+
+    .excel-table th, .excel-table td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .excel-table th {
+        background-color: #f2f2f2;
+    }
+
+    .excel-table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .excel-table tbody tr:hover {
+        background-color: #ddd;
+    }
+
+    .button-container {
+        margin-top: 20px;
+    }
+
+
+
+    .option-button {
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .red-button {
+        background-color: #ff5252;
+        color: #fff;
+    }
+
+    .green-button {
+        background-color: #4caf50;
+        color: #fff;
+    }
+
+    .lightblue-button {
+        background-color: #03aefd;
+        color: #fff;
+    }
+</style>
+    <link rel="stylesheet" href="/css/estiloLogin.css">
+
+    <div class="user-list" style="background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-right: auto;
+            width: 50%;
+            margin-left: auto;
+            text-align: center;">
+            <h2>Lista de Usuarios</h2>
+            <table class="table table-striped table-hover">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+                <tbody>
+                {{#each usuarios}}
+                    <tr>
+                        <td>{{this.nombreUsuario}}</td>
+                        <td>
+                            <a class="btn btn-secondary" href="/usuarios/{{this.id}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a class="btn btn-secondary" href="/usuarios/{{this.id}}/eliminar"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        <div class="form-group">
+            <br>
+            <form method="GET"  action="/login"  id="dataEntryForm">
+                <button type="submit"  class="btn btn-primary">Volver</button>
+            </form>
+        </div>
+</div>
+
+{{/partial}}
+{{> templates/base }}
